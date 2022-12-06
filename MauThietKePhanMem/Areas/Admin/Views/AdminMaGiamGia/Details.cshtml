@@ -5,47 +5,56 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Details</h2>
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Chi tiết mã giảm giá</h4>
 
-<div>
-    <h4>MaGiamGia</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TenMaGiamGia)
-        </dt>
+            <form class="forms-sample">
+                <div class="form-group row">
+                    <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Mã giảm giá</label>
+                    <div class="col-sm-9">
+                        @Html.DisplayFor(model => model.IDMaGiamGia)
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Tên mã giảm giá</label>
+                    <div class="col-sm-9">
+                        @Html.DisplayFor(model => model.TenMaGiamGia)
+                    </div>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.TenMaGiamGia)
-        </dd>
+                <div class="form-group row">
+                    <label for="exampleInputUsername2" class="col-sm-3 col-form-label">ngày bắt đầu giảm giá</label>
+                    <div class="col-sm-9">
+                        @Html.DisplayFor(model => model.NgayBatDauGiamGia)
+                    </div>
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NgayBatDauGiamGia)
-        </dt>
+                <div class="form-group row">
+                    <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Ngày kết thúc giảm giá</label>
+                    <div class="col-sm-9">
+                        @Html.DisplayFor(model => model.NgayKetThucGiamGia)
+                    </div>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.NgayBatDauGiamGia)
-        </dd>
+                <div class="form-group row">
+                    <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Số tiền được giảm</label>
+                    <div class="col-sm-9">
+                        @Html.DisplayFor(model => model.SoTienGiam)
+                    </div>
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NgayKetThucGiamGia)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.NgayKetThucGiamGia)
-        </dd>
+                <a href="~/Admin/AdminMaGiamGia/Edit/@Model.IDMaGiamGia">
+                    <button style="width:100px; type="submit" class="btn btn-primary mr-2">Edit</button>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SoTienGiam)
-        </dt>
+                </a>
 
-        <dd>
-            @Html.DisplayFor(model => model.SoTienGiam)
-        </dd>
-
-    </dl>
+                <a href="~/Admin/AdminMaGiamGia/Index">
+                    <button type="button" class="btn btn-outline-secondary btn-lg btn-block" style="width:300px; margin-top:40px">Trở về</button>
+                </a>
+            </form>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IDMaGiamGia }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

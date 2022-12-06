@@ -5,119 +5,109 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Details</h2>
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Chi tiết đơn đặt hàng</h4>
 
-<div>
-    <h4>DonDatHang</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.NgayMua)
-        </dt>
+            <form class="forms-sample">
+                <div class="form-group row">
+                    <label for="exampleInputUsername2" class="col-sm-3 col-form-label">ID mặt hàng</label>
+                    <div class="col-sm-9">
+                        @Html.DisplayFor(model => model.IDDDH)
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Tên khách hàng</label>
+                    <div class="col-sm-9">
+                        @Html.DisplayFor(model => model.KhachHang.TenKH)
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Địa chỉ nhận hàng</label>
+                    <div class="col-sm-9">
+                        @Html.DisplayFor(model => model.DiaChiNhanHang)
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Loại mặt hàng</label>
+                    <div class="col-sm-9">
+                        @Html.DisplayFor(model => model.NgayMua)
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Tổng số lượng</label>
+                    <div class="col-sm-9">
+                        @Html.DisplayFor(model => model.TongSoluong)
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Tổng tiền</label>
+                    <div class="col-sm-9 money">
+                        @Html.DisplayFor(model => model.TongTien) VND
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Trạng thái thanh toán</label>
+                    <div class="col-sm-9 money">
+                        @Html.DisplayFor(model => model.TrangThaiThanhToan)
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Trạng thái đơn hàng</label>
+                    <div class="col-sm-9 money">
+                        @Html.DisplayFor(model => model.TrangThai.TenTrangThai)
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Đơn hàng</label>
+                    <div class="col-sm-9">
+                        @Html.DisplayFor(model => model.PhuongThucThanhToan.TenPT)
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Ngày nhập hàng</label>
+                    <div class="col-sm-9">
+                        @Html.DisplayFor(model => model.TrangThai.TenTrangThai)
+                    </div>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.NgayMua)
-        </dd>
+                <div class="form-group row">
+                    <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Tên khách hàng lẻ</label>
+                    <div class="col-sm-9">
+                        @Html.DisplayFor(model => model.TenKHKhongAccount)
+                    </div>
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DiaChiNhanHang)
-        </dt>
+                <div class="form-group row">
+                    <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Điện thoại khách hàng lẻ</label>
+                    <div class="col-sm-9">
+                        @Html.DisplayFor(model => model.DienThoaiKhongAccount)
+                    </div>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.DiaChiNhanHang)
-        </dd>
+                <div class="form-group row">
+                    <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Ghi chú</label>
+                    <div class="col-sm-9">
+                        @Html.DisplayFor(model => model.GhiChu)
+                    </div>
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TongSoluong)
-        </dt>
+                <div class="form-group row">
+                    <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Nhân viên giao hàng</label>
+                    <div class="col-sm-9">
+                        @Html.DisplayFor(model => model.NhanVien.TenNhanVien)
+                    </div>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.TongSoluong)
-        </dd>
+                <a href="~/Admin/AdminDonDatHangs/Edit/@Model.IDDDH">
+                    <button style="width:100px; type="submit" class="btn btn-primary mr-2">Edit</button>
+                </a>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TongTien)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TongTien)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TrangThaiThanhToan)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TrangThaiThanhToan)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NgayThanhToan)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NgayThanhToan)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.GhiChu)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.GhiChu)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TenKHKhongAccount)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TenKHKhongAccount)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DienThoaiKhongAccount)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DienThoaiKhongAccount)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.KhachHang.TenKH)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.KhachHang.TenKH)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NhanVien.TenNhanVien)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NhanVien.TenNhanVien)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PhuongThucThanhToan.TenPT)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PhuongThucThanhToan.TenPT)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TrangThai.TenTrangThai)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TrangThai.TenTrangThai)
-        </dd>
-
-    </dl>
+                <a href="~/Admin/AdminDonDatHangs/Index">
+                    <button type="button" class="btn btn-outline-secondary btn-lg btn-block" style="width:300px; margin-top:40px">Trở về</button>
+                </a>
+            </form>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IDDDH }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

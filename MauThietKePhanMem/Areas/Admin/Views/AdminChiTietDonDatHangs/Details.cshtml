@@ -5,63 +5,57 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Details</h2>
 
-<div>
-    <h4>ChiTietDonDatHang</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.DonGia)
-        </dt>
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Chi tiết hóa đơn</h4>
 
-        <dd>
-            @Html.DisplayFor(model => model.DonGia)
-        </dd>
+            <form class="forms-sample">
+                <div class="form-group row">
+                    <label for="exampleInputUsername2" class="col-sm-3 col-form-label">ID hóa đơn</label>
+                    <div class="col-sm-9">
+                        @Html.DisplayFor(model => model.IDDDH)
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Tên mặt hàng</label>
+                    <div class="col-sm-9">
+                        @Html.DisplayFor(model => model.MatHang.TenMH)
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Số lượng mặt hàng</label>
+                    <div class="col-sm-9">
+                        @Html.DisplayFor(model => model.SoluongMH)
+                    </div>
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DanhGiaSanPham)
-        </dt>
+                <h3>Phần bình luận</h3>
+                @if (Model.DanhGiaSanPham != null && Model.BinhLuan != null)
+                {
+                    <div class="form-group row">
+                        <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Đánh giá sản phẩm</label>
+                        <div class="col-sm-9">
+                            @Html.DisplayFor(model => model.DanhGiaSanPham) <span>★</span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Bình luận</label>
+                        <div class="col-sm-9">
+                            @Html.DisplayFor(model => model.BinhLuan)
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <h4>Khách hàng chưa đánh giá sản phẩm</h4>
+                }
 
-        <dd>
-            @Html.DisplayFor(model => model.DanhGiaSanPham)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.BinhLuan)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.BinhLuan)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SoluongMH)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SoluongMH)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DonDatHang.DiaChiNhanHang)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DonDatHang.DiaChiNhanHang)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MatHang.TenMH)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MatHang.TenMH)
-        </dd>
-
-    </dl>
+                <a href="~/Admin/AdminChiTietDonDatHangs/Index">
+                    <button type="button" class="btn btn-outline-secondary btn-lg btn-block" style="width:300px; margin-top:40px">Trở về</button>
+                </a>
+            </form>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IDChiTietDDH }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

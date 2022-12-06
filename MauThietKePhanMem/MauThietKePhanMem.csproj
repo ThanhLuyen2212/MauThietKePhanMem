@@ -1149,12 +1149,8 @@
     <Content Include="Areas\Admin\Views\Shared\_AdminFooter.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_AdminHeader.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_AdminNavLeft.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminChiTietDonDatHangs\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminChiTietDonDatHangs\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\AdminChiTietDonDatHangs\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminChiTietDonDatHangs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\AdminChiTietDonDatHangs\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminDonDatHangs\Create.cshtml" />
     <Content Include="Areas\Admin\Views\AdminDonDatHangs\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\AdminDonDatHangs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\AdminDonDatHangs\Edit.cshtml" />
@@ -1199,6 +1195,17 @@
     <Content Include="Areas\Admin\Views\AdminTrangThais\Details.cshtml" />
     <Content Include="Areas\Admin\Views\AdminTrangThais\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\AdminTrangThais\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminDonDatHangs\DuyetDonDatHang.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminDonDatHangs\GiaoHangKhongThanhCong.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminDonDatHangs\GiaoHangThanhCong.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminDonDatHangs\TatCaDonHangDaHuy.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminDonDatHangs\DonHangCanXoa.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminDonDatHangs\PhanCongGiaoHang.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminThongKe\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminThongKe\ThongKeDoanhThuTheoKhachHang.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminThongKe\ThongKeDoanhThuTheoSanPham.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminThongKe\ThongKeDoanhThu.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminThongKe\ThongKeDoanhThuTheoKhachHangLe.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -1227,7 +1234,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Views\AdminThongKe\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
