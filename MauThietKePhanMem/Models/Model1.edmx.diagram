@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="286e00b0ed584abab741261201b1af8f" Name="Diagram1">
+        <EntityTypeShape EntityType="MauThietKePhanMemModel.Admin" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MauThietKePhanMemModel.ChiTietDonDatHang" Width="1.5" PointX="5.25" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="MauThietKePhanMemModel.DonDatHang" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="MauThietKePhanMemModel.KhachHang" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MauThietKePhanMemModel.LoaiMatHang" Width="1.5" PointX="0.75" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MauThietKePhanMemModel.MaGiamGia" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MauThietKePhanMemModel.MatHang" Width="1.5" PointX="3" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MauThietKePhanMemModel.NhanVien" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MauThietKePhanMemModel.PhuongThucThanhToan" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MauThietKePhanMemModel.TrangThai" Width="1.5" PointX="0.75" PointY="12" IsExpanded="true" />
+        <AssociationConnector Association="MauThietKePhanMemModel.FK_CHITIETDONDATHANG_DONDATHANG" ManuallyRouted="false" />
+        <AssociationConnector Association="MauThietKePhanMemModel.FK_CHITIETDONDATHANG_MATHANG" ManuallyRouted="false" />
+        <AssociationConnector Association="MauThietKePhanMemModel.FK_DONDATHANG_KHACHHANG" ManuallyRouted="false" />
+        <AssociationConnector Association="MauThietKePhanMemModel.FK_DONDATHANG_NHANVIEN" ManuallyRouted="false" />
+        <AssociationConnector Association="MauThietKePhanMemModel.FK_DONDATHANG_PHUONGTHUC" ManuallyRouted="false" />
+        <AssociationConnector Association="MauThietKePhanMemModel.FK_DONDATHANG_TRANGTHAI" ManuallyRouted="false" />
+        <AssociationConnector Association="MauThietKePhanMemModel.FK_MATHANG_LOAIMATHANG" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
