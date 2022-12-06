@@ -3,28 +3,61 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MauThietKePhanMem.Models;
 
 namespace MauThietKePhanMem.Controllers
 {
     public class HomeController : Controller
     {
+
+        MauThietKePhanMemEntities data = new MauThietKePhanMemEntities();
         public ActionResult Index()
         {
-            return View();
+
+            ViewBag.banner = data.MatHangs.Where(c => c.SoLuong > 0).Take(3).OrderByDescending(x => x.NgayNhapHang).ToList();
+
+            ViewBag.newProduct = data.MatHangs.Where(c => c.SoLuong > 0).Take(8).OrderByDescending(x => x.NgayNhapHang).ToList();
+
+            // lấy danh sách mặt hàng có nhiều hóa đơn nhất
+            /*List<BestSeller> bestSellerList = new List<BestSeller>();
+            foreach (MatHang item in data.MatHangs)
+            {
+                int soluong = data.ChiTietDonDatHangs.Count(c => c.IDMH == item.IDMH);
+                bestSellerList.Add(new BestSeller(item, soluong));
+            }
+            bestSellerList.Sort((a, b) => a.soluongmua.CompareTo(b.soluongmua));
+
+            List<MatHang> ListMatHang = new List<MatHang>();
+            foreach (BestSeller item in bestSellerList)
+            {
+                ListMatHang.Add(item.matHang);
+            }
+            ViewBag.bestSeller = ListMatHang.Take(8);*/
+            // kết thúc lấy 8 sản phẩm bán chạy nhất
+            // kết thúc lấy 8 sản phẩm bán chạy nhất
+
+            List<MatHang> listMatHangBanChay = data.sp_8SanPhamBanChayNhat().ToList();
+            ViewBag.bestSeller = listMatHangBanChay;
+
+            return View(data.MatHangs.Where(c => c.SoLuong > 0).ToList());
         }
 
-        public ActionResult About()
+        public ActionResult Index1()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
+            // lấy danh sách mặt hàng có nhiều hóa đơn nhất
         }
+    }
 
-        public ActionResult Contact()
+    public class BestSeller
+    {
+        public MatHang matHang { get; set; }
+        public int soluongmua { get; set; }
+
+        public BestSeller(MatHang matHang, int soluongmua)
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            this.matHang = matHang;
+            this.soluongmua = soluongmua;
         }
     }
 }
