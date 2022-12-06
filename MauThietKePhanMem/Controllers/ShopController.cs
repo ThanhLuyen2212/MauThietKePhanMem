@@ -15,7 +15,17 @@ namespace MauThietKePhanMem.Controllers
 
         public ActionResult Index(string idLoaiMH, string TenMatHang, int page = 1, int pagelist = 6)
         {
-            ViewBag.Category = data.LoaiMatHangs.ToList();
+
+            // Thực hiện áp dụng singleton vào trong chương trình 
+
+            DanhMucSingleton.Instance.Init();
+            var listDanhMuc = DanhMucSingleton.Instance.listDanhMuc;
+            ViewBag.Category = listDanhMuc;
+
+            // kết thúc áp dụng sinhgleton vào chương trình
+
+
+            //ViewBag.Category = data.LoaiMatHangs.ToList();
             if (idLoaiMH != null)
             {
                 int a = int.Parse(idLoaiMH.ToString());
@@ -35,4 +45,9 @@ namespace MauThietKePhanMem.Controllers
 
         }
     }
+
+
+
+
+
 }
