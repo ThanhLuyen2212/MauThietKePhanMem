@@ -14,7 +14,13 @@ namespace MauThietKePhanMem.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Web;
 
-    public partial class MatHang
+
+    public interface MatHangPrototype
+    {
+        MatHangPrototype Clone();
+    }
+
+    public partial class MatHang : MatHangPrototype
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public MatHang()
@@ -50,5 +56,24 @@ namespace MauThietKePhanMem.Models
 
         [NotMapped]
         public HttpPostedFileBase UploadImage4 { get; set; }
+
+
+        public MatHangPrototype Clone()
+        {
+            MatHang mh = new MatHang();
+            mh.TenMH = TenMH;
+            mh.IDLoaiMH = IDLoaiMH;
+            mh.MoTa = MoTa;
+            mh.DonGia = DonGia;
+            mh.MoTaChiTiet = MoTaChiTiet;
+            mh.NgayNhapHang = NgayNhapHang;
+            mh.SoLuong = SoLuong;
+            mh.HinhAnh1 = HinhAnh1;
+            mh.HinhAnh4 = HinhAnh4;
+            mh.HinhAnh3 = HinhAnh3;
+            mh.HinhAnh2 = HinhAnh2;
+
+            return mh;
+        }
     }
 }

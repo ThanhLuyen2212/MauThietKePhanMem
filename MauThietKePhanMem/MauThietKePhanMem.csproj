@@ -150,6 +150,7 @@
     <Compile Include="Areas\Admin\Controllers\AdminThongKeController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminTrangThaisController.cs" />
     <Compile Include="Areas\Admin\Model\ThongKeTheoKhachHang.cs" />
+    <Compile Include="Areas\Admin\Model\ThongKeTheoKhachHangPrototypePattern.cs" />
     <Compile Include="Areas\Admin\Model\ThongKeTheoSanPham.cs" />
     <Compile Include="Controllers\ChiTietSanPhamController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
@@ -1406,6 +1407,7 @@
     <Content Include="Images\22.webp" />
     <Content Include="Images\33.webp" />
     <Content Include="Images\44.webp" />
+    <Content Include="Areas\Admin\Views\AdminMatHangs\Duplicate.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

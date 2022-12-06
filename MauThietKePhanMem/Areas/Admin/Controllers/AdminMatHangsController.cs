@@ -195,5 +195,34 @@ namespace MauThietKePhanMem.Areas.Admin.Controllers
             }
             base.Dispose(disposing);
         }
+
+        // Sinhgle prototype
+
+        // GET: Admin/AdminMatHangs/Delete/5
+        public ActionResult Duplicate(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            MatHang matHang = db.MatHangs.Find(id);
+            if (matHang == null)
+            {
+                return HttpNotFound();
+            }
+            return View(matHang);
+        }
+
+
+        [HttpPost, ActionName("Duplicate")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DuplicateConfirmed(int id)
+        {
+            MatHang matHang = db.MatHangs.Find(id);
+            var cloneMatHang = matHang.Clone();
+            db.MatHangs.Add((MatHang)cloneMatHang);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

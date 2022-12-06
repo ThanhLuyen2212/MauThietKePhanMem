@@ -5,6 +5,8 @@ using System.Web;
 
 namespace MauThietKePhanMem.Areas.Admin.Model
 {
+
+
     public class ThongKeTheoKhachHang
     {
         public string TenKhachHang { get; set; }
