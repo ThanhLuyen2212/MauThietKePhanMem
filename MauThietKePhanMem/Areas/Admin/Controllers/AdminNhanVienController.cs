@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MauThietKePhanMem.Models;
+using MauThietKePhanMem.Models.Prototype;
 
 namespace MauThietKePhanMem.Areas.Admin.Controllers
 {
@@ -123,5 +124,51 @@ namespace MauThietKePhanMem.Areas.Admin.Controllers
             }
             base.Dispose(disposing);
         }
+
+
+
+        public ActionResult Duplicate(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            NhanVien nv = db.NhanViens.Find(id);
+            if (nv == null)
+            {
+                return HttpNotFound();
+            }
+            return View(nv);
+        }
+
+
+        [HttpPost, ActionName("Duplicate")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DuplicateConfirmed(int id)
+        {
+            /*NhanVien nv = db.NhanViens.Find(id);
+
+            var cloneMatHang = matHang.C();
+            db.MatHangs.Add((MatHang)cloneMatHang);
+            db.SaveChanges();
+            return RedirectToAction("Index");*/
+
+            NhanVien nv = db.NhanViens.Find(id);
+                        
+            NhanVienBanHang nvbanhang = new NhanVienBanHang("Test_Prototype",nv.DiaChi,nv.SDT,nv.Email);
+            NhanVien_Prototype_basic basic;
+
+            NhanVien nvclone = new NhanVien();
+            nvclone.DiaChi = nvbanhang.DiaChi;
+            nvclone.SDT = nvbanhang.SDT;
+            nvclone.Email = nvbanhang.Email;
+            nvclone.TenNhanVien = nvbanhang.TenNhanVien;
+            nvclone.ChucVu = nvbanhang.ChucVu;
+
+            basic = nvbanhang.Clone(nvclone);
+
+            return RedirectToAction("Index");
+        }
+
     }
 }

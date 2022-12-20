@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MauThietKePhanMem.Models;
+using MauThietKePhanMem.Models.Proxy;
 
 namespace MauThietKePhanMem.Areas.Admin.Controllers
 {
@@ -21,7 +22,13 @@ namespace MauThietKePhanMem.Areas.Admin.Controllers
             {
                 return RedirectToAction("Index", "AdminLogin");
             }
-            return View(db.LoaiMatHangs.ToList());
+            /*return View(db.LoaiMatHangs.ToList());*/
+
+            LoaiMatHang_Subject proxy = new LoaiMatHang_Proxy();
+            List<LoaiMatHang> listLMH = proxy.index();
+            return View(listLMH);
+
+
         }
 
         // GET: Admin/AdminLoaiMatHangs/Details/5
@@ -31,12 +38,17 @@ namespace MauThietKePhanMem.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            LoaiMatHang loaiMatHang = db.LoaiMatHangs.Find(id);
+            /*LoaiMatHang loaiMatHang = db.LoaiMatHangs.Find(id);
             if (loaiMatHang == null)
             {
                 return HttpNotFound();
             }
-            return View(loaiMatHang);
+            return View(loaiMatHang);*/
+            int i = (int)id;
+            LoaiMatHang_Subject proxy = new LoaiMatHang_Proxy();
+            LoaiMatHang lmh = proxy.detail(i);
+            return View(lmh);
+
         }
 
         // GET: Admin/AdminLoaiMatHangs/Create
@@ -54,9 +66,13 @@ namespace MauThietKePhanMem.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.LoaiMatHangs.Add(loaiMatHang);
+                /*db.LoaiMatHangs.Add(loaiMatHang);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index");*/
+
+                LoaiMatHang_Subject proxy = new LoaiMatHang_Proxy();
+                proxy.AddLoaiMatHang(loaiMatHang);
+                return RedirectToAction("Index"); 
             }
 
             return View(loaiMatHang);
@@ -113,9 +129,13 @@ namespace MauThietKePhanMem.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            LoaiMatHang loaiMatHang = db.LoaiMatHangs.Find(id);
+            /*LoaiMatHang loaiMatHang = db.LoaiMatHangs.Find(id);
             db.LoaiMatHangs.Remove(loaiMatHang);
             db.SaveChanges();
+            return RedirectToAction("Index");*/
+
+            LoaiMatHang_Subject proxy = new LoaiMatHang_Proxy();
+            proxy.RemoveLoaiMatHang(id);
             return RedirectToAction("Index");
         }
 
