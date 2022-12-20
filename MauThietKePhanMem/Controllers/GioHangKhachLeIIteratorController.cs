@@ -105,35 +105,32 @@ namespace MauThietKePhanMem.Controllers
             try
             {
                 // Lấy tưng sản phẩm
-                GioHang gio = Session["GioHang"] as GioHang;
-
-                //List<Hang> gio = Session["GioHang"] as List<Hang>;
-
+                GioHang gio = Session["GioHang"] as GioHang;                
                 double _tongHang = 0;
-
+                
                 GioHangIIterator giohang = new GioHangIIterator(gio.ListHang.ToList());
+
                 _tongHang =  giohang.sum();
-
-
-                foreach (var item in gio.ListHang)
+                if (_tongHang == 0)
                 {
-                    if (item._soLuongHang <= 0)
-                    {
-                        gio.Remove(item.gioHang.IDMH);
-                    }
-                    //_tongHang += item._soLuongHang;
+                    return RedirectToAction("Index", "Home");
+                }
+                Hang hang = giohang.First();
 
-                    if (_tongHang == 0)
+                while (!giohang.IsDone)
+                {
+                     if(hang._soLuongHang <= 0)
                     {
-                        return RedirectToAction("Index", "Home");
+                        gio.Remove(hang.gioHang.IDMH);
                     }
-                    MatHang mh = data.MatHangs.Find(item.gioHang.IDMH);
-                    if (item._soLuongHang > mh.SoLuong)
+                    MatHang mh = data.MatHangs.Find(hang.gioHang.IDMH);
+                    if (hang._soLuongHang > mh.SoLuong)
                     {
-                        gio.Remove(item.gioHang.IDMH);
+                        gio.Remove(hang.gioHang.IDMH);
                         return Content("Số lượng mặt hàng " + mh.TenMH + " không đủ!");
                     }
 
+                    hang = giohang.Next();
                 }
                 Session["GioHang"] = gio;
 
@@ -143,7 +140,6 @@ namespace MauThietKePhanMem.Controllers
             {
                 return Content("Vui lòng kiểm tra lại thông tin!");
             }
-
         }
     }
 }

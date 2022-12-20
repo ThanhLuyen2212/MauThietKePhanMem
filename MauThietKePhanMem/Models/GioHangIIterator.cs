@@ -16,10 +16,13 @@ namespace MauThietKePhanMem.Models
     public interface IIterator
     {
         int TongTien();
-
         int Total();
-
         double sum();
+        Hang First();
+        Hang Last();
+        Hang Next();
+        bool IsDone { get; }
+        Hang CurrentItem { get; }
     }
 
 
@@ -33,8 +36,38 @@ namespace MauThietKePhanMem.Models
             _listHang = listHang;
         }
 
+        int step = 1;
+        int current = 0;
+        
+        public bool IsDone
+        {
+            get { return current >= _listHang.Count; }
+        }
 
-       /* List<Hang> listHang = new List<Hang>();*/
+        public Hang First()
+        {
+            current = 0;
+            return _listHang[current];
+        }
+
+        public Hang Next()
+        {
+            current ++; 
+            if(!IsDone)
+                return _listHang[current]; 
+            else
+                return null;
+        }
+
+        public Hang Last()
+        {
+            current = _listHang.Count-1;
+            return _listHang[current];
+        }
+
+        public Hang CurrentItem => _listHang[current];
+
+        /* List<Hang> listHang = new List<Hang>();*/
 
         public IEnumerable<Hang> ListHang
         {

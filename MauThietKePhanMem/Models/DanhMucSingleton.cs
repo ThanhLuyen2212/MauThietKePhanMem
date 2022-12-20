@@ -9,11 +9,8 @@ namespace MauThietKePhanMem.Models
     public sealed class DanhMucSingleton
     {
         public static DanhMucSingleton Instance { get; } = new DanhMucSingleton();
-
         public List<LoaiMatHang> listDanhMuc { get; } = new List<LoaiMatHang>();
-
         private DanhMucSingleton() { }
-
         public void Init()
         {
             MauThietKePhanMemEntities data = new MauThietKePhanMemEntities();
